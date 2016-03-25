@@ -1,7 +1,5 @@
 package com.example.dmitriy.mvp_sample.example;
 
-import android.util.Log;
-
 import com.jakewharton.rxbinding.widget.RxTextView;
 import com.jakewharton.rxbinding.widget.TextViewTextChangeEvent;
 

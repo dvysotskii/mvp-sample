@@ -21,5 +21,7 @@ public interface ExampleInterfaces {
 
     interface ExampleInterfaceView {
         void showResponse(String text);
+
+        void showError(String error);
     }
 }

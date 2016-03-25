@@ -6,6 +6,7 @@ import android.os.Bundle;
 import java.util.concurrent.TimeUnit;
 
 import rx.Observable;
+import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -32,9 +33,19 @@ public class ExamplePresenterImpl implements ExampleInterfaces.ExampleInterfaceP
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<String>() {
+                .subscribe(new Subscriber<String>() {
                     @Override
-                    public void call(String s) {
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        view.showError(e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(String s) {
                         view.showResponse(s);
                     }
                 });
